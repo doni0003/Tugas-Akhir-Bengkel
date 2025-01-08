@@ -1,0 +1,110 @@
+1. Deklarasi Variabel  
+   - Buat list `noPelanggan`, `namaPelanggan`, `alamatPelanggan`, `Layanan`, `hargaLayanan`.
+   - Inisialisasi `Running` sebagai `true`.
+   - Buat `BufferedReader` untuk input dari pengguna.
+
+2. Main Function  
+   - Tampilkan header "BENGKEL DONI NESIA".
+   - Selama `Running` bernilai `true`:
+     - Panggil `showMenu()`.
+
+3. Fungsi showMenu  
+   - Tampilkan daftar menu:  
+     ```
+     1. Lihat Laporan  
+     2. Input Data  
+     3. Edit Data  
+     4. Hapus Data  
+     5. Keluar  
+     ```
+   - Baca pilihan dari pengguna.  
+   - Gunakan switch-case:  
+     - Case 1: Panggil `showAll()`.  
+     - Case 2: Panggil `input()`.  
+     - Case 3: Panggil `edit()`.  
+     - Case 4: Panggil `delete()`.  
+     - Case 5: Set `Running = false`, tampilkan pesan "Program dihentikan".  
+     - Default: Tampilkan pesan "Menu tidak valid!".  
+
+4. Fungsi showAll  
+   - Tampilkan header laporan "LAPORAN BENGKEL GADING MOTOR".
+   - Jika `noPelanggan` kosong:  
+     - Tampilkan pesan "Data Pelanggan Belum Ada!".  
+   - Jika tidak kosong:  
+     - Hitung jumlah halaman (`totalPages`).  
+     - Untuk setiap halaman:  
+       - Tampilkan data pelanggan dengan format tabel.  
+       - Hitung subtotal harga layanan per halaman.  
+       - Tampilkan subtotal halaman.  
+       - Jika masih ada halaman berikutnya, tunggu input ENTER.  
+     - Tampilkan total keseluruhan harga layanan.
+
+5. Fungsi input  
+   - Set `berjalan = true`.  
+   - Selama `berjalan` bernilai `true`:  
+     - Minta input:
+       - Nomor pelanggan.
+       - Nama pelanggan.
+       - Alamat pelanggan.  
+     - Tampilkan daftar layanan:  
+       ```
+       1. Ganti Oli  
+       2. Kampas Rem  
+       3. Busi  
+       4. Servis Motor  
+       5. Ganti Ban Baru  
+       6. Tambal Ban  
+       ```
+     - Minta input pilihan layanan.  
+     - Panggil `Layanan(kode)` untuk mendapatkan nama layanan.  
+     - Panggil `Harga(kode)` untuk mendapatkan harga layanan.  
+     - Tambahkan data ke list `noPelanggan`, `namaPelanggan`, `alamatPelanggan`, `Layanan`, `hargaLayanan`.  
+     - Tampilkan pesan "Data berhasil ditambahkan".  
+     - Tanyakan apakah ingin menambah data lagi (`y/t`):  
+       - Jika `t`, set `berjalan = false`.
+
+6. Fungsi edit  
+   - Tampilkan semua data pelanggan dengan `showAll()`.  
+   - Minta input nomor pelanggan yang akan di-edit.  
+   - Jika nomor valid:  
+     - Minta input data baru untuk:
+       - Nomor pelanggan.
+       - Nama pelanggan.
+       - Alamat pelanggan.  
+     - Tampilkan daftar layanan.  
+     - Minta input kode layanan baru.  
+     - Panggil `Layanan(kode)` untuk mengubah nama layanan.  
+     - Panggil `Harga(kode)` untuk mengubah harga layanan.  
+     - Ubah data pada indeks yang sesuai.  
+     - Tampilkan pesan "Data berhasil diubah".  
+   - Jika nomor tidak valid:  
+     - Tampilkan pesan "Data tidak ada dalam database!".
+
+7. Fungsi delete  
+   - Tampilkan semua data pelanggan dengan `showAll()`.  
+   - Minta input nomor pelanggan yang akan dihapus.  
+   - Jika nomor valid:  
+     - Hapus data pada indeks yang sesuai dari semua list.  
+     - Tampilkan pesan "Data berhasil dihapus".  
+   - Jika nomor tidak valid:  
+     - Tampilkan pesan "Data tidak ada dalam database!".
+
+8. Fungsi Harga(kode)
+   - Berdasarkan `kode`:  
+     - 1: Return 80000.  
+     - 2: Return 60000.  
+     - 3: Return 18000.  
+     - 4: Return 150000.  
+     - 5: Return 150000.  
+     - 6: Return 25000.  
+     - Default: Return 0.
+
+9. Fungsi Layanan(kode) 
+   - Berdasarkan `kode`:  
+     - 1:** Return "Ganti Oli".  
+     - 2:** Return "Kampas Rem".  
+     - 3:** Return "Busi".  
+     - 4:** Return "Servis Motor".  
+     - 5:** Return "Ganti Ban Baru".  
+     - 6:** Return "Tambal Ban".  
+     - Default: Return "Layanan tidak tersedia".
